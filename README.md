@@ -26,16 +26,15 @@ CSS3
 Flexbox & Grid Layout
 Responsividade com Media Queries
 
-📂 Estrutura do Projeto
+📂 Estrutura do Projeto 
 📦 minecraft-website
- ┣ 📂 assets
- ┃ ┣ 📂 images
- ┃ ┣ 📂 icons
- ┃ ┗ 📂 fonts
- ┣ 📜 index.html
- ┣ 📜 style.css
- ┣ 📜 script.js
- ┗ 📜 README.md
+ ┣ 📂 assets<br>
+ ┃ ┣ 📂 images<br>
+ ┃ ┣ 📂 icons<br>
+ ┃ ┗ 📂 fonts<br>
+ ┣ 📜 index.html<br>
+ ┣ 📜 style.css<br>
+ ┗ 📜 README.md<br>
 🚀 Como Executar o Projeto
 
 Clone o repositório:
