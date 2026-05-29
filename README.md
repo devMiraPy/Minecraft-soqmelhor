@@ -40,7 +40,7 @@ Responsividade com Media Queries
 
 Clone o repositório:
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/devMiraPy/Minecraft-soqmelhor.git
 
 Acesse a pasta do projeto:
 
