@@ -19,6 +19,10 @@
   --total: calc(var(--total-slides) * var(--duracao-slide));
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
@@ -36,84 +40,172 @@ body {
   inset: 0;
   z-index: 9999;
   background-color: #1a1a1a;
-  background-image: url('image/quebrando_animated.gif');
-  background-size: 100vh;
-  background-repeat: repeat;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 7px,
+      rgba(0, 0, 0, 0.18) 7px,
+      rgba(0, 0, 0, 0.18) 8px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 7px,
+      rgba(0, 0, 0, 0.18) 7px,
+      rgba(0, 0, 0, 0.18) 8px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 4px,
+      transparent 4px,
+      transparent 8px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(80, 80, 80, 0.07) 0px,
+      rgba(80, 80, 80, 0.07) 3px,
+      transparent 3px,
+      transparent 8px
+    );
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: loading-sair 0.6s ease-in forwards;
-  animation-delay: 3.4s;
-  overflow: hidden;
+  animation: loading-sair 0.5s ease-in forwards;
+  animation-delay: 3.2s;
+}
+
+.loading-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(60, 60, 60, 0.25) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 28% 7%,
+      rgba(30, 30, 30, 0.3) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 45% 22%,
+      rgba(70, 70, 70, 0.2) 5px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 63% 11%,
+      rgba(40, 40, 40, 0.28) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 78% 19%,
+      rgba(0, 0, 0, 0.22) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 91% 8%,
+      rgba(25, 25, 25, 0.3) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 6% 38%,
+      rgba(65, 65, 65, 0.18) 5px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 19% 44%,
+      rgba(35, 35, 35, 0.25) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 34% 51%,
+      rgba(75, 75, 75, 0.2) 4px,
+      transparent 4px
+    ),
+    radial-gradient(circle at 52% 39%, rgba(0, 0, 0, 0.3) 3px, transparent 3px),
+    radial-gradient(
+      circle at 67% 47%,
+      rgba(60, 60, 60, 0.22) 5px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 83% 35%,
+      rgba(30, 30, 30, 0.28) 3px,
+      transparent 3px
+    ),
+    radial-gradient(circle at 96% 42%, rgba(0, 0, 0, 0.2) 4px, transparent 4px),
+    radial-gradient(
+      circle at 8% 62%,
+      rgba(40, 40, 40, 0.25) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 23% 68%,
+      rgba(70, 70, 70, 0.18) 5px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 39% 74%,
+      rgba(55, 55, 55, 0.28) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 57% 61%,
+      rgba(25, 25, 25, 0.22) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 72% 69%,
+      rgba(65, 65, 65, 0.2) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 88% 77%,
+      rgba(35, 35, 35, 0.25) 5px,
+      transparent 5px
+    ),
+    radial-gradient(circle at 15% 85%, rgba(0, 0, 0, 0.3) 3px, transparent 3px),
+    radial-gradient(
+      circle at 31% 91%,
+      rgba(45, 45, 45, 0.22) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 48% 83%,
+      rgba(60, 60, 60, 0.18) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 64% 88%,
+      rgba(30, 30, 30, 0.28) 5px,
+      transparent 5px
+    ),
+    radial-gradient(circle at 79% 93%, rgba(7, 0, 0, 0.2) 3px, transparent 3px),
+    radial-gradient(
+      circle at 93% 86%,
+      rgba(40, 40, 40, 0.25) 4px,
+      transparent 4px
+    );
+  pointer-events: none;
+  z-index: 0;
 }
 
 @keyframes loading-sair {
-  0%   { opacity: 1; transform: scale(1);    pointer-events: all; }
-  60%  { opacity: 1; transform: scale(1.04); }
-  100% { opacity: 0; transform: scale(1.08); pointer-events: none; visibility: hidden; }
+  0% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
 }
 
-
-.loading-crack {
-  position: absolute;
-  background: #000;
-  transform-origin: center;
-  animation: crack-aparecer 0.15s ease-out forwards;
-  opacity: 0;
-  z-index: 2;
-}
-
-.crack-1 { width: 3px; height: 35vh; top: 30%; left: 48%; transform: rotate(12deg);  animation-delay: 2.0s; }
-.crack-2 { width: 2px; height: 25vh; top: 20%; left: 49%; transform: rotate(-8deg);  animation-delay: 2.1s; }
-.crack-3 { width: 3px; height: 30vh; top: 50%; left: 47%; transform: rotate(25deg);  animation-delay: 2.2s; }
-.crack-4 { width: 2px; height: 28vh; top: 40%; left: 51%; transform: rotate(-18deg); animation-delay: 2.15s; }
-.crack-5 { width: 2px; height: 20vh; top: 15%; left: 46%; transform: rotate(5deg);   animation-delay: 2.3s; }
-.crack-6 { width: 3px; height: 22vh; top: 60%; left: 52%; transform: rotate(-30deg); animation-delay: 2.25s; }
-.crack-7 { width: 2px; height: 18vh; top: 10%; left: 50%; transform: rotate(40deg);  animation-delay: 2.35s; }
-.crack-8 { width: 2px; height: 24vh; top: 70%; left: 48%; transform: rotate(-15deg); animation-delay: 2.4s; }
-
-@keyframes crack-aparecer {
-  0%   { opacity: 0; transform: scaleY(0) rotate(inherit); }
-  100% { opacity: 1; transform: scaleY(1) rotate(inherit); }
-}
-
-
-.loading-fragmento {
-  position: absolute;
-  background-image: url('image/quebrando_animated.gif');
-  background-size: 180px 180px;
-  border: 1px solid rgba(0,0,0,.4);
-  opacity: 0;
-  z-index: 3;
-  animation: frag-voar 0.5s ease-in forwards;
-}
-
-.frag-1 { width: 18vw; height: 22vh; top: 0;   left: 0;   background-position: 0 0;       animation-delay: 2.8s; }
-.frag-2 { width: 22vw; height: 18vh; top: 0;   left: 20%; background-position: -40px 0;   animation-delay: 2.85s; }
-.frag-3 { width: 16vw; height: 25vh; top: 0;   left: 42%; background-position: -80px 0;   animation-delay: 2.8s; }
-.frag-4 { width: 24vw; height: 20vh; top: 0;   right: 0;  background-position: -120px 0;  animation-delay: 2.9s; }
-.frag-5 { width: 20vw; height: 28vh; top: 22%; left: 0;   background-position: 0 -40px;   animation-delay: 2.85s; }
-.frag-6 { width: 26vw; height: 24vh; top: 38%; right: 0;  background-position: -100px -40px; animation-delay: 2.8s; }
-.frag-7 { width: 22vw; height: 30vh; bottom: 0; left: 0;  background-position: 0 -80px;   animation-delay: 2.9s; }
-.frag-8 { width: 28vw; height: 26vh; bottom: 0; left: 22%; background-position: -60px -80px; animation-delay: 2.85s; }
-.frag-9 { width: 20vw; height: 28vh; bottom: 0; right: 0; background-position: -120px -80px; animation-delay: 2.8s; }
-
-@keyframes frag-voar {
-  0%   { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
-  100% { opacity: 0; transform: translate(var(--tx, 0), var(--ty, 0)) rotate(var(--tr, 0deg)) scale(0.4); }
-}
-
-.frag-1 { --tx: -15vw; --ty: -20vh; --tr: -18deg; }
-.frag-2 { --tx: -5vw;  --ty: -25vh; --tr: 10deg; }
-.frag-3 { --tx: 5vw;   --ty: -22vh; --tr: -8deg; }
-.frag-4 { --tx: 18vw;  --ty: -20vh; --tr: 15deg; }
-.frag-5 { --tx: -20vw; --ty: 5vh;   --tr: -22deg; }
-.frag-6 { --tx: 20vw;  --ty: 8vh;   --tr: 20deg; }
-.frag-7 { --tx: -18vw; --ty: 22vh;  --tr: -12deg; }
-.frag-8 { --tx: 2vw;   --ty: 25vh;  --tr: 8deg; }
-.frag-9 { --tx: 20vw;  --ty: 20vh;  --tr: -16deg; }
-
-/* Conteúdo central */
 .loading-conteudo {
   position: relative;
   z-index: 4;
@@ -124,41 +216,85 @@ body {
   gap: 16px;
 }
 
+.loading-pickaxe-wrap {
+  margin-bottom: 4px;
+}
+
+.loading-pickaxe {
+  width: 72px;
+  height: 72px;
+  image-rendering: pixelated;
+  animation: pickaxe-flutuar 2s ease-in-out infinite;
+}
+
+@keyframes pickaxe-flutuar {
+  0% {
+    transform: translateY(0px) rotate(-10deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(20deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-10deg);
+  }
+}
+
 .loading-logo {
-  font-family: 'Press Start 2P', monospace;
+  font-family: "Press Start 2P", monospace;
   font-size: clamp(28px, 5vw, 64px);
   color: #fff;
   text-shadow:
     4px 4px 0 #5c9a24,
-    8px 8px 0 rgba(0,0,0,.5);
+    8px 8px 0 rgba(0, 0, 0, 0.5);
   letter-spacing: 2px;
   animation: logo-pulsar 1s ease-in-out infinite alternate;
+  margin-top: -30px;
 }
 
 @keyframes logo-pulsar {
-  from { text-shadow: 4px 4px 0 #5c9a24, 8px 8px 0 rgba(0,0,0,.5); }
-  to   { text-shadow: 4px 4px 0 #7ec832, 10px 10px 0 rgba(0,0,0,.5); }
+  from {
+    text-shadow:
+      4px 4px 0 #5c9a24,
+      8px 8px 0 rgba(0, 0, 0, 0.5);
+  }
+  to {
+    text-shadow:
+      4px 4px 0 #7ec832,
+      10px 10px 0 rgba(0, 0, 0, 0.5);
+  }
 }
 
 .loading-texto {
-  font-family: 'Press Start 2P', monospace;
+  font-family: "Press Start 2P", monospace;
   font-size: 10px;
-  color: rgba(255,255,255,.7);
+  color: rgba(255, 255, 255, 0.7);
   letter-spacing: 1px;
   animation: piscar 1s step-end infinite;
 }
 
 @keyframes piscar {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 .loading-barra-wrap {
   width: 280px;
   height: 14px;
-  border: 3px solid rgba(255,255,255,.4);
-  background: rgba(0,0,0,.5);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  margin-top: 20px;
 }
 
 .loading-barra {
@@ -169,13 +305,22 @@ body {
 }
 
 @keyframes barra-encher {
-  0%    { width: 0%; }
-  30%   { width: 35%; }
-  60%   { width: 70%; }
-  85%   { width: 88%; }
-  100%  { width: 100%; }
+  0% {
+    width: 0%;
+  }
+  30% {
+    width: 35%;
+  }
+  60% {
+    width: 70%;
+  }
+  85% {
+    width: 88%;
+  }
+  100% {
+    width: 100%;
+  }
 }
-
 
 nav {
   position: fixed;
@@ -1210,27 +1355,27 @@ nav {
       0deg,
       transparent,
       transparent 7px,
-      rgba(0,0,0,.18) 7px,
-      rgba(0,0,0,.18) 8px
+      rgba(0, 0, 0, 0.18) 7px,
+      rgba(0, 0, 0, 0.18) 8px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
       transparent 7px,
-      rgba(0,0,0,.18) 7px,
-      rgba(0,0,0,.18) 8px
+      rgba(0, 0, 0, 0.18) 7px,
+      rgba(0, 0, 0, 0.18) 8px
     ),
     repeating-linear-gradient(
       0deg,
-      rgba(255,255,255,.03) 0px,
-      rgba(255,255,255,.03) 4px,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 4px,
       transparent 4px,
       transparent 8px
     ),
     repeating-linear-gradient(
       90deg,
-      rgba(80,80,80,.07) 0px,
-      rgba(80,80,80,.07) 3px,
+      rgba(80, 80, 80, 0.07) 0px,
+      rgba(80, 80, 80, 0.07) 3px,
       transparent 3px,
       transparent 8px
     );
@@ -1238,35 +1383,119 @@ nav {
 }
 
 .footer::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 12% 18%, rgba(60,60,60,.25) 4px, transparent 4px),
-    radial-gradient(circle at 28% 7%,  rgba(30,30,30,.3)  3px, transparent 3px),
-    radial-gradient(circle at 45% 22%, rgba(70,70,70,.2)  5px, transparent 5px),
-    radial-gradient(circle at 63% 11%, rgba(40,40,40,.28) 3px, transparent 3px),
-    radial-gradient(circle at 78% 19%, rgba(0, 0, 0, 0.22) 4px, transparent 4px),
-    radial-gradient(circle at 91% 8%,  rgba(25,25,25,.3)  3px, transparent 3px),
-    radial-gradient(circle at 6%  38%, rgba(65,65,65,.18) 5px, transparent 5px),
-    radial-gradient(circle at 19% 44%, rgba(35,35,35,.25) 3px, transparent 3px),
-    radial-gradient(circle at 34% 51%, rgba(75,75,75,.2)  4px, transparent 4px),
-    radial-gradient(circle at 52% 39%, rgba(0, 0, 0, 0.3)  3px, transparent 3px),
-    radial-gradient(circle at 67% 47%, rgba(60,60,60,.22) 5px, transparent 5px),
-    radial-gradient(circle at 83% 35%, rgba(30,30,30,.28) 3px, transparent 3px),
-    radial-gradient(circle at 96% 42%, rgba(0, 0, 0, 0.2)  4px, transparent 4px),
-    radial-gradient(circle at 8%  62%, rgba(40,40,40,.25) 3px, transparent 3px),
-    radial-gradient(circle at 23% 68%, rgba(70,70,70,.18) 5px, transparent 5px),
-    radial-gradient(circle at 39% 74%, rgba(55,55,55,.28) 3px, transparent 3px),
-    radial-gradient(circle at 57% 61%, rgba(25,25,25,.22) 4px, transparent 4px),
-    radial-gradient(circle at 72% 69%, rgba(65,65,65,.2)  3px, transparent 3px),
-    radial-gradient(circle at 88% 77%, rgba(35,35,35,.25) 5px, transparent 5px),
-    radial-gradient(circle at 15% 85%, rgba(0, 0, 0, 0.3)  3px, transparent 3px),
-    radial-gradient(circle at 31% 91%, rgba(45,45,45,.22) 4px, transparent 4px),
-    radial-gradient(circle at 48% 83%, rgba(60,60,60,.18) 3px, transparent 3px),
-    radial-gradient(circle at 64% 88%, rgba(30,30,30,.28) 5px, transparent 5px),
-    radial-gradient(circle at 79% 93%, rgba(7, 0, 0, 0.2)  3px, transparent 3px),
-    radial-gradient(circle at 93% 86%, rgba(40,40,40,.25) 4px, transparent 4px);
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(60, 60, 60, 0.25) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 28% 7%,
+      rgba(30, 30, 30, 0.3) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 45% 22%,
+      rgba(70, 70, 70, 0.2) 5px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 63% 11%,
+      rgba(40, 40, 40, 0.28) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 78% 19%,
+      rgba(0, 0, 0, 0.22) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 91% 8%,
+      rgba(25, 25, 25, 0.3) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 6% 38%,
+      rgba(65, 65, 65, 0.18) 5px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 19% 44%,
+      rgba(35, 35, 35, 0.25) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 34% 51%,
+      rgba(75, 75, 75, 0.2) 4px,
+      transparent 4px
+    ),
+    radial-gradient(circle at 52% 39%, rgba(0, 0, 0, 0.3) 3px, transparent 3px),
+    radial-gradient(
+      circle at 67% 47%,
+      rgba(60, 60, 60, 0.22) 5px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 83% 35%,
+      rgba(30, 30, 30, 0.28) 3px,
+      transparent 3px
+    ),
+    radial-gradient(circle at 96% 42%, rgba(0, 0, 0, 0.2) 4px, transparent 4px),
+    radial-gradient(
+      circle at 8% 62%,
+      rgba(40, 40, 40, 0.25) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 23% 68%,
+      rgba(70, 70, 70, 0.18) 5px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 39% 74%,
+      rgba(55, 55, 55, 0.28) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 57% 61%,
+      rgba(25, 25, 25, 0.22) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 72% 69%,
+      rgba(65, 65, 65, 0.2) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 88% 77%,
+      rgba(35, 35, 35, 0.25) 5px,
+      transparent 5px
+    ),
+    radial-gradient(circle at 15% 85%, rgba(0, 0, 0, 0.3) 3px, transparent 3px),
+    radial-gradient(
+      circle at 31% 91%,
+      rgba(45, 45, 45, 0.22) 4px,
+      transparent 4px
+    ),
+    radial-gradient(
+      circle at 48% 83%,
+      rgba(60, 60, 60, 0.18) 3px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 64% 88%,
+      rgba(30, 30, 30, 0.28) 5px,
+      transparent 5px
+    ),
+    radial-gradient(circle at 79% 93%, rgba(7, 0, 0, 0.2) 3px, transparent 3px),
+    radial-gradient(
+      circle at 93% 86%,
+      rgba(40, 40, 40, 0.25) 4px,
+      transparent 4px
+    );
   pointer-events: none;
   z-index: 0;
 }
@@ -1276,7 +1505,6 @@ nav {
   z-index: 1;
 }
 
-
 .footer-social {
   border-bottom: 1px solid #2a2a2a;
   padding: 32px 0;
@@ -1284,11 +1512,11 @@ nav {
 }
 
 .footer-social-titulo {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: rgba(255,255,255,.5);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -1303,13 +1531,16 @@ nav {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,.7);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: border-color .2s, color .2s, background .2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s;
 }
 
 .footer-social-icon svg {
@@ -1320,7 +1551,7 @@ nav {
 .footer-social-icon:hover {
   border-color: #fff;
   color: #fff;
-  background: rgba(255,255,255,.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .footer-corpo {
@@ -1349,7 +1580,7 @@ nav {
   display: inline-flex;
   flex-direction: column;
   line-height: 1;
-  font-family: 'Press Start 2P', monospace;
+  font-family: "Press Start 2P", monospace;
 }
 
 .mojang-moj,
@@ -1362,7 +1593,7 @@ nav {
 
 .mojang-studios {
   font-size: 7px;
-  color: rgba(255,255,255,.85);
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: 3px;
   display: block;
   margin-top: 6px;
@@ -1388,7 +1619,7 @@ nav {
 }
 
 .xbox-linha1 {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 18px;
   font-weight: 900;
   color: #fff;
@@ -1396,17 +1627,17 @@ nav {
 }
 
 .xbox-linha2 {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 10px;
   font-weight: 700;
-  color: rgba(255,255,255,.6);
+  color: rgba(255, 255, 255, 0.6);
   letter-spacing: 1.5px;
 }
 
 .footer-copyright {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 12px;
-  color: rgba(255,255,255,.4);
+  color: rgba(255, 255, 255, 0.4);
   line-height: 1.6;
 }
 
@@ -1418,11 +1649,11 @@ nav {
 }
 
 .footer-links-legais a {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 12px;
   color: var(--verde-claro);
   text-decoration: none;
-  transition: color .2s;
+  transition: color 0.2s;
 }
 
 .footer-links-legais a:hover {
@@ -1430,7 +1661,7 @@ nav {
 }
 
 .footer-links-legais span {
-  color: rgba(255,255,255,.3);
+  color: rgba(255, 255, 255, 0.3);
   font-size: 12px;
 }
 
@@ -1441,24 +1672,24 @@ nav {
 }
 
 .footer-col h3.footer-col-titulo {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 15px;
   font-weight: 800;
   color: #fff;
   margin-bottom: 12px;
-  letter-spacing: .3px;
+  letter-spacing: 0.3px;
 }
 
-
 .esrb-caixa {
-  border: 2px solid rgba(255,255,255,.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   width: 200px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   overflow: hidden;
+  margin-left: 500px;
 }
 
 .esrb-topo {
-  background: rgba(255,255,255,.9);
+  background: rgba(255, 255, 255, 0.9);
   text-align: center;
   padding: 3px 6px;
 }
@@ -1467,7 +1698,7 @@ nav {
   font-size: 9px;
   font-weight: 900;
   color: #000;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 
 .esrb-meio {
@@ -1475,7 +1706,7 @@ nav {
   align-items: center;
   gap: 8px;
   padding: 8px 10px;
-  border-bottom: 1px solid rgba(255,255,255,.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .esrb-letra-wrap {
@@ -1502,7 +1733,7 @@ nav {
 .esrb-nome {
   font-size: 11px;
   font-weight: 900;
-  color: rgba(255,255,255,.6);
+  color: rgba(255, 255, 255, 0.6);
   letter-spacing: 1px;
 }
 
@@ -1519,19 +1750,15 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  border-top: 1px solid rgba(255,255,255,.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .esrb-rodape p {
   font-size: 9px;
-  color: rgba(255,255,255,.7);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.4;
   text-align: center;
 }
-
-
-
-
 
 .borda-pixel {
   position: absolute;
